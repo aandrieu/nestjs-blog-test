@@ -1,0 +1,35 @@
+{
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/nest-app/src",
+  "projects": {
+    "postgres": {
+      "type": "library",
+      "root": "libs/postgres",
+      "entryFile": "index",
+      "sourceRoot": "libs/postgres/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/postgres/tsconfig.lib.json"
+      }
+    },
+    "nest-app": {
+      "type": "application",
+      "root": "apps/nest-app",
+      "entryFile": "main",
+      "sourceRoot": "apps/nest-app/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/nest-app/tsconfig.app.json"
+      }
+    }
+  },
+  "compilerOptions": {
+    "plugins": ["@nestjs/graphql/plugin"],
+    "webpack": true,
+    "tsConfigPath": "apps/nest-app/tsconfig.app.json",
+    "deleteOutDir": true
+  },
+  "generateOptions": {
+    "spec": false
+  },
+  "monorepo": true,
+  "root": "apps/nest-app"
+}
